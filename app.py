@@ -11,7 +11,9 @@ from supabase import create_client
 load_dotenv()
 SUPABASE_URL = os.getenv("SUPABASE_URL")
 SUPABASE_KEY = os.getenv("SUPABASE_KEY")
+supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 
+st.set_page_config(page_title="AI PDF RAG Chatbot", page_icon="🤖")
 supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 st.set_page_config(page_title="AI PDF RAG Chatbot", page_icon="🤖")
