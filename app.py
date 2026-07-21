@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 from groq import Groq
 from pypdf import PdfReader
 from sentence_transformers import SentenceTransformer
-
+from supabase import create_client
 load_dotenv()
 
 st.set_page_config(page_title="AI PDF RAG Chatbot", page_icon="🤖")
