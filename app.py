@@ -63,6 +63,21 @@ if pdfs:
 if pdfs:
     text = ""
     for pdf in pdfs:
+
+        try:
+            pdf.seek(0)
+            supabase.storage.from_("pdfs").upload(
+                pdf.name,
+                pdf.read(),
+                {"content-type": "application/pdf"}
+            )
+            pdf.seek(0)
+        except Exception:
+            pass
+
+        reader = PdfReader(pdf)
+        for page in reader.pages:
+            text += (page.extract_text() or "") + "\n"
         reader = PdfReader(pdf)
         for page in reader.pages:
             text += (page.extract_text() or "") + "\n"
