@@ -5,3 +5,4 @@ groq
 pypdf
 python-dotenv
 numpy
+supase
